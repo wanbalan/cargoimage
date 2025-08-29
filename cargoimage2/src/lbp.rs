@@ -54,12 +54,12 @@ pub fn lbp_run(
             let w2 = i_two.next().unwrap_or(def_wind).iter();
             let w3 = i_three.next().unwrap_or(def_wind).iter();
             let mut all: Vec<_> = w1.chain(w2).chain(w3).collect();
-            bound = *(all[5]) as usize;
-            all.remove(5);
+            bound = *(all[4]) as usize;
+            all.remove(4);
 
             let mut pix = 0_u8;
             all.iter().enumerate().for_each(|(num, x)| {
-                if (**x as usize) > bound {
+                if (**x as usize) >= bound {
                     pix |= 1 << num;
                 }
             });
